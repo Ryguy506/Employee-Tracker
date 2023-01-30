@@ -102,3 +102,95 @@ function addDepartment() {
         
         }
 
+
+        function addRole() {
+
+            inquirer
+            .prompt([{
+                type: 'input',
+                name: 'title',
+                message: 'What is the title of the role you would like to add?'
+            },
+            {
+                type: 'input',
+                name: 'salary',
+                message: 'What is the salary of the role you would like to add?'
+            },
+            {
+                type: 'input',
+                name: 'department_id',
+                message: 'What is the department id of the role you would like to add?'
+            }
+        ])
+            .then((answer) => {
+                db.query(`insert into roles (title, salary, department_id) values (?, ?, ?)`, [answer.title, answer.salary, answer.department_id] , function(err, result) {
+                    if (err) throw err;
+                    }
+                );
+                viewTable('roles');
+                start();
+            })
+            
+            }
+        
+        function addEmployee() {
+            
+                inquirer
+                .prompt([{
+                    type: 'input',
+                    name: 'first_name',
+                    message: 'What is the first name of the employee you would like to add?'
+                },
+                {
+                    type: 'input',
+                    name: 'last_name',
+                    message: 'What is the last name of the employee you would like to add?'
+                },
+                {
+                    type: 'input',
+                    name: 'role_id',
+                    message: 'What is the role id of the employee you would like to add?'
+                },
+                {
+                    type: 'input',
+                    name: 'manager_id',
+                    message: 'What is the manager id of the employee you would like to add?'
+                }
+            ])
+                .then((answer) => {
+                    db.query(`insert into employee (first_name, last_name, role_id, manager_id) values (?, ?, ?, ?)`, [answer.first_name, answer.last_name, answer.role_id, answer.manager_id] , function(err, result) {
+                        if (err) throw err;
+                        }
+                    );
+                    viewTable('employee');
+                    start();
+                })
+                
+                }
+        
+        
+        function updateEmployeeRole() {
+                
+                inquirer
+                .prompt([{
+                    type: 'input',
+                    name: 'id',
+                    message: 'What is the id of the employee you would like to update?'
+                },
+                {
+                    type: 'input',
+                    name: 'role_id',
+                    message: 'What is the new role id of the employee you would like to update?'
+                }
+            ])
+                .then((answer) => {
+                    db.query(`update employee set role_id = ? where id = ?`, [answer.role_id, answer.id] , function(err, result) {
+                        if (err) throw err;
+                        }
+                    );
+                    viewTable('employee');
+                    start();
+                })
+                
+                }
+        
