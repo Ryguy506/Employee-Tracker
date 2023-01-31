@@ -28,7 +28,7 @@ create table employee (
     last_name varchar(30) not null,
     role_id int not null,
     manager_id int,
-    foreign key (role_id) references role(id)
+    foreign key (role_id) references roles(id)
 );
 
 
@@ -46,7 +46,7 @@ insert into roles (title, salary, department_id) values ('Salesperson', 80000, 2
 insert into roles (title, salary, department_id) values ('Lead Designer', 120000, 3);
 insert into roles (title, salary, department_id) values ('Designer', 100000, 3);
 insert into roles (title, salary, department_id) values ('Customer Service Manager', 90000, 4);
-insert into roles (title, salary, department_id) values ('Customer Service Representative', 60000, 4);
+insert into roles (title, salary, department_id) values ('Customer Service Rep', 60000, 4);
 
 
 insert into employee (first_name, last_name, role_id, manager_id) values ('John', 'Doe', 1, 2);
