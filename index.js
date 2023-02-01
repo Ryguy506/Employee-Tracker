@@ -17,6 +17,7 @@ const db = mysql.createConnection(
 db.connect(function (err) {
     if (err) throw err;
     console.log("Connected!");
+    console.log(`Welcome to the Employee Tracker!`);
     start();
 });
 
@@ -92,6 +93,7 @@ function showRoles() {
         FROM roles
         INNER JOIN department ON roles.department_id = department.id`, function (err, result) {
         if (err) throw err;
+        console.log(`==================== Roles ====================`);
         console.table(result);
         start();
     })
@@ -113,6 +115,7 @@ function showEmployees() {
     LEFT JOIN department ON roles.department_id = department.id
     LEFT JOIN employee manager ON employee.manager_id = manager.id`, function (err, result) {
         if (err) throw err;
+        console.log(`==================== Employees ====================`);
         console.table(result);
         start();
     })
@@ -132,7 +135,6 @@ function addDepartment() {
             }
             );
             viewTable('department');
-            start();
         })
 
 }
@@ -163,7 +165,6 @@ function addRole() {
             }
             );
             viewTable('roles');
-            start();
         })
 
 }
@@ -198,7 +199,6 @@ function addEmployee() {
             }
             );
             viewTable('employee');
-            start();
         })
 
 }
@@ -224,7 +224,6 @@ function updateEmployeeRole() {
             }
             );
             viewTable('employee');
-            start();
         })
 
 }
