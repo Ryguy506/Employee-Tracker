@@ -34,7 +34,7 @@ follow the prompts to view, add, or update the database.
 
 ### Demo
 
-<iframe width="auto" height="auto" src="https://www.youtube.com/embed/p7H3gyvnrwM" title="demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="500" height="500" src="https://www.youtube.com/embed/p7H3gyvnrwM" title="demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## License
 ### MIT
